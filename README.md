@@ -5,4 +5,5 @@ Script URL: https://cdn.jsdelivr.net/gh/Antenna-Digital/kairos-power@main/script
 
 Purge URL: https://purge.jsdelivr.net/gh/Antenna-Digital/kairos-power@main/scripts.js
 
-<script src='https://cdn.jsdelivr.net/gh/Antenna-Digital/kairos-power@main/scripts.js' >
+<script src="https://cdn.jsdelivr.net/gh/Antenna-Digital/kairos-power@main/scripts.js"></script>
+
