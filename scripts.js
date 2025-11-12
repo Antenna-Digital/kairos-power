@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
         prevEl: ".btn-slider-prev",
       },
       breakpoints: {
-        479: {
+        639: {
           slidesPerView: 2,
           spaceBetween: 30,
         },
