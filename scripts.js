@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
       spaceBetween: 30,
       loop: true,
       speed: 400,
-      autoplay: false,
+      autoplay: true,
       navigation: {
         nextEl: ".btn-slider-next",
         prevEl: ".btn-slider-prev",
