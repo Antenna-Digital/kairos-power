@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
       slidesPerView: 1,
       spaceBetween: 30,
       loop: true,
-      speed: 400,
+      speed: 2000,
       autoplay: true,
       navigation: {
         nextEl: ".btn-slider-next",
@@ -187,7 +187,7 @@ document.addEventListener("DOMContentLoaded", function () {
       observeParents: true,
       slidesPerView: 1,
       spaceBetween: 16,
-      speed: 800,
+      speed: 2000,
       autoplay: {
         delay: 2000,
         pauseOnMouseEnter: true,
