@@ -189,7 +189,7 @@ document.addEventListener("DOMContentLoaded", function () {
       spaceBetween: 16,
       speed: 2000,
       autoplay: {
-        delay: 2000,
+        delay: 3000,
         pauseOnMouseEnter: true,
       },
       autoHeight: false,
