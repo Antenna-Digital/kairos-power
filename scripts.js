@@ -94,8 +94,11 @@ document.addEventListener("DOMContentLoaded", function () {
       slidesPerView: 1,
       spaceBetween: 30,
       loop: true,
-      speed: 2000,
-      autoplay: false,
+      speed: 400,
+      autoplay: {
+        delay: 5000,
+        pauseOnMouseEnter: true,
+      },
       navigation: {
         nextEl: ".btn-slider-next",
         prevEl: ".btn-slider-prev",
@@ -187,9 +190,9 @@ document.addEventListener("DOMContentLoaded", function () {
       observeParents: true,
       slidesPerView: 1,
       spaceBetween: 16,
-      speed: 2000,
+      speed: 400,
       autoplay: {
-        delay: 3000,
+        delay: 5000,
         pauseOnMouseEnter: true,
       },
       autoHeight: false,
