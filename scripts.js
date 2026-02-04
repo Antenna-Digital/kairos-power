@@ -216,7 +216,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  
+
 
   // vertical tabs, when clicked, show the video identified in the data-src attribute
   // Get all accordion tops and video targets
@@ -276,15 +276,26 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Initialize: hide all videos except the first one
-  videoTargets.forEach((video, index) => {
-    if (index === 0) {
-      video.style.opacity = "1";
-      video.style.display = "block";
-    } else {
-      video.style.opacity = "0";
-      video.style.display = "none";
-    }
+  // Tooltip Interaction Logic
+  $(".graphic_tool-tip").each(function () {
+    const tooltip = $(this);
+    const content = tooltip.find(".graphic-tool-tip_content");
+
+    // Initialize state
+    gsap.set(content, { opacity: 0, display: "none", y: 10 });
+
+    let hoverTl = gsap.timeline({ paused: true });
+    hoverTl
+      .to(content, { display: "block", duration: 0 })
+      .to(content, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" });
+
+    tooltip.on("mouseenter", function () {
+      hoverTl.play();
+    });
+
+    tooltip.on("mouseleave", function () {
+      hoverTl.reverse();
+    });
   });
 }); // end DOMContentLoaded
 
