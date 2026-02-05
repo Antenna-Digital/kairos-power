@@ -267,7 +267,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Initialize: hide all videos except the first one
-
     videoTargets.forEach((video, index) => {
         if (index === 0) {
             video.style.opacity = "1";
@@ -276,58 +275,59 @@ document.addEventListener("DOMContentLoaded", function () {
             video.style.opacity = "0";
             video.style.display = "none";
         }
+    });
 
-        // Add click handlers to all accordion tops
-        accordionTops.forEach((accordionTop) => {
-            accordionTop.addEventListener("click", function () {
-                const targetId = this.getAttribute("data-src");
-                if (targetId) {
-                    switchVideo(targetId);
-                }
-            });
-        });
-
-        // Tooltip Interaction Logic
-        $(".graphic_tool-tip").each(function () {
-            const tooltip = $(this);
-            const content = tooltip.find(".graphic-tool-tip_content");
-
-            // Initialize state
-            gsap.set(content, { opacity: 0, display: "none", y: 10 });
-
-            let hoverTl = gsap.timeline({ paused: true });
-            hoverTl
-                .to(content, { display: "block", duration: 0 })
-                .to(content, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" });
-
-            tooltip.on("mouseenter", function () {
-                hoverTl.play();
-            });
-
-            tooltip.on("mouseleave", function () {
-                hoverTl.reverse();
-            });
-        });
-    }); // end DOMContentLoaded
-
-    var Webflow = Webflow || [];
-    Webflow.push(function () {
-        // Find all containers with wf-accordion="open-first" attribute
-        const accordionContainers = document.querySelectorAll(
-            '[wf-accordion="open-first"]'
-        );
-
-        accordionContainers.forEach(function (container) {
-            // Get the first accordion toggle within this container
-            const firstAccordionToggle = container.querySelector(
-                ".vertical_tab_accordion_top"
-            );
-
-            if (firstAccordionToggle) {
-                // Dispatch the same events as the reference code to properly trigger Webflow's dropdown
-                firstAccordionToggle.dispatchEvent(new Event("mousedown"));
-                firstAccordionToggle.dispatchEvent(new Event("mouseup"));
-                $(firstAccordionToggle).trigger("tap");
+    // Add click handlers to all accordion tops
+    accordionTops.forEach((accordionTop) => {
+        accordionTop.addEventListener("click", function () {
+            const targetId = this.getAttribute("data-src");
+            if (targetId) {
+                switchVideo(targetId);
             }
         });
     });
+
+    // Tooltip Interaction Logic
+    $(".graphic_tool-tip").each(function () {
+        const tooltip = $(this);
+        const content = tooltip.find(".graphic-tool-tip_content");
+
+        // Initialize state
+        gsap.set(content, { opacity: 0, display: "none", y: 10 });
+
+        let hoverTl = gsap.timeline({ paused: true });
+        hoverTl
+            .to(content, { display: "block", duration: 0 })
+            .to(content, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" });
+
+        tooltip.on("mouseenter", function () {
+            hoverTl.play();
+        });
+
+        tooltip.on("mouseleave", function () {
+            hoverTl.reverse();
+        });
+    });
+}); // end DOMContentLoaded
+
+var Webflow = Webflow || [];
+Webflow.push(function () {
+    // Find all containers with wf-accordion="open-first" attribute
+    const accordionContainers = document.querySelectorAll(
+        '[wf-accordion="open-first"]'
+    );
+
+    accordionContainers.forEach(function (container) {
+        // Get the first accordion toggle within this container
+        const firstAccordionToggle = container.querySelector(
+            ".vertical_tab_accordion_top"
+        );
+
+        if (firstAccordionToggle) {
+            // Dispatch the same events as the reference code to properly trigger Webflow's dropdown
+            firstAccordionToggle.dispatchEvent(new Event("mousedown"));
+            firstAccordionToggle.dispatchEvent(new Event("mouseup"));
+            $(firstAccordionToggle).trigger("tap");
+        }
+    });
+});
